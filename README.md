@@ -30,6 +30,22 @@ https://mega.nz/#F!mllnjQYC!E47eZ0yHJ-t3AjvDujONIw
 # Resultados con los datos de Validacion 
 En las carpetas Evans_test,Reynolds_test
 
+# Text2Face Actual y Futuro
+
+* ACTUAL
+Los cuadernos text_feature y generate_pic seran utilizados posteriormente para generar un sistema capaz de convertir ciertas silabas introducidas por el usuario en un conjunto de landmarks moviles 
+* text_feature es utilizado para descargar el playlist proveniente del canal https://www.youtube.com/watch?v=zP84KDECeu0 asi como los subtitulos de cada video, el canal es especialmente util ya que se presentan las palabras separadas en tiempos bien definidos y con buena pronunciacion 
+* El dataset actualmente elaborado puede ser obtenido en https://drive.google.com/open?id=1maf64dgo2Nm6p-eu_DDOlt9YCVQBgUYF
+* Se ha utilizado el Silabizer propuesto por https://github.com/mabodo/sibilizador
+* Dictionary se ha obtenido utilizando la pagina http://www.elcastellano.org/ns/edicion/2014/abril/silabas.html
+* generate_pic obtiene los 68 landmarks, de los cuales toma los 20 presentes en la boca del sujeto, un total de 40 variables, posteriormente es realizado un analisis PCA para reducir el numero de componentes maneniendo una varianza del 97% y luego las poses son clasificadas usando Kmeans, en el cuaderno se puede observar que con un cluster de 30 ya brinda una inercia bastante optima
+* Las funciones finales de generate_pic ya permiten generar el one hot encoding para cada silaba y el one hot encoding para una pose especifica de la boca del sujeto, logrando obtener una sequencia de silabas (palabras u oraciones) convertibles en una sequencia de imagenes en one hot encoding
+
+
+* FUTURO 
+* Entrenar una LSTM para obtener un generador texto a pose silabica 
+* Mejorar el dataset para un posible lector de labios 
+
 
 # Referencias
 1. Gary B. Huang, Manu Ramesh, Tamara Berg, and Erik Learned-Miller.
